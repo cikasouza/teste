@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listagem de Funcionários</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Matricula</th>
+      <th>Nome</th>
+      <th>Sexo</th>
+      <th>Endereco</th>
+      <th>Telefone</th>
+      <th>Salario</th>
+      <th>Data Adminissão</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funcionarios.each do |funcionario| %>
+      <tr>
+        <td><%= funcionario.matricula %></td>
+        <td><%= funcionario.nome %></td>
+        <td><%= funcionario.sexo %></td>
+        <td><%= funcionario.endereco %></td>
+        <td><%= funcionario.telefone %></td>
+        <td><%= funcionario.salario %></td>
+        <td><%= funcionario.dtadmissao %></td>
+        <td><%= link_to '', edit_funcionario_path(funcionario), class: "glyphicon glyphicon-pencil" %>
+        <%= link_to '', funcionario, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Funcionário', new_funcionario_path, class: "btn btn-default " %>
